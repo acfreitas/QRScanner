@@ -1,4 +1,4 @@
-package xyz.ariefbayu.xyzbarcodescanner
+package ifmt.bag.evento_scanner
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("xyz.ariefbayu.xyzbarcodescanner", appContext.packageName)
+        assertEquals("ifmt.bag.QRScanner", appContext.packageName)
     }
 }

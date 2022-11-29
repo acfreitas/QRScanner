@@ -1,4 +1,4 @@
-package xyz.ariefbayu.xyzbarcodescanner
+package ifmt.bag.evento_scanner
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         btnScanMe.setOnClickListener {
             run {
                 IntentIntegrator(this@MainActivity).initiateScan();
@@ -22,16 +21,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-
         var result: IntentResult? = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-
         if(result != null){
-
             if(result.contents != null){
                 scannedResult = result.contents
                 txtValue.text = scannedResult
             } else {
-                txtValue.text = "scan failed"
+                txtValue.text = "Falhou!"
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)
@@ -39,18 +35,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
-
         outState?.putString("scannedResult", scannedResult)
         super.onSaveInstanceState(outState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
-
         savedInstanceState?.let {
             scannedResult = it.getString("scannedResult")
             txtValue.text = scannedResult
         }
     }
-
 }

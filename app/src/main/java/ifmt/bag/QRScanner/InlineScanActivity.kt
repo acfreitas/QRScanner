@@ -1,4 +1,4 @@
-package xyz.ariefbayu.xyzbarcodescanner
+package ifmt.bag.evento_scanner
 
 import android.content.Context
 import android.os.Build
@@ -19,13 +19,13 @@ class InlineScanActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        title = "Scan Once"
+        title = "Uma vez"
 
         captureManager = CaptureManager(this, barcodeView)
         captureManager.initializeFromIntent(intent, savedInstanceState)
 
         btnScan.setOnClickListener {
-            txtResult.text = "scaning..."
+            txtResult.text = "Verificando..."
             barcodeView.decodeSingle(object: BarcodeCallback{
                 override fun barcodeResult(result: BarcodeResult?) {
                     result?.let {
@@ -50,7 +50,6 @@ class InlineScanActivity : AppCompatActivity() {
                         }
                     }
                 }
-
                 override fun possibleResultPoints(resultPoints: MutableList<ResultPoint>?) {
                 }
             })

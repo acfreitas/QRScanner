@@ -1,4 +1,4 @@
-package xyz.ariefbayu.xyzbarcodescanner
+package ifmt.bag.evento_scanner
 
 import org.junit.Test
 
